@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96A9120A-C58A-464E-824A-105A559FC3C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SolidPresentation</RootNamespace>
+    <AssemblyName>SolidPresentation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\Address.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\StreetNumber.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\PostalCode.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\ContactInfo.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\PhoneNumber.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\Email.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\BisTerQuarter.cs" />
+    <Compile Include="2_OCP\Example1\1Bad\5ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\1Bad\4ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\1Bad\3ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\1Bad\2ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\1Bad\1ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\2Good\5ProductRepositoryWithCacheAndDurationProxy.cs" />
+    <Compile Include="2_OCP\Example1\2Good\4ProductRepositoryWithCacheProxy.cs" />
+    <Compile Include="2_OCP\Example1\2Good\3ProductRepositoryStopwatchProxy.cs" />
+    <Compile Include="2_OCP\Example1\2Good\2ProductRepositoryLoggerProxy.cs" />
+    <Compile Include="2_OCP\Example1\2Good\Client.cs" />
+    <Compile Include="2_OCP\Example1\Db\DbContext.cs" />
+    <Compile Include="2_OCP\Example1\Db\DbSet.cs" />
+    <Compile Include="2_OCP\Example1\Db\Logger.cs" />
+    <Compile Include="2_OCP\Example1\2Good\1ProductRepository.cs" />
+    <Compile Include="2_OCP\Example1\2Good\IProductRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="1_SRP\Example1\1Bad.cs" />
+    <Compile Include="1_SRP\Example1\Utils\MyXmlSerializer.cs" />
+    <Compile Include="1_SRP\Example1\Utils\TempFileManager.cs" />
+    <Compile Include="1_SRP\Example1\2Good.cs" />
+    <Compile Include="1_SRP\Example2\1Bad.cs" />
+    <Compile Include="1_SRP\Example2\2Better.cs" />
+    <Compile Include="1_SRP\Example2\WithoutPrimitiveObsession\Person.cs" />
+    <Compile Include="3_LSP\1BadWithException.cs" />
+    <Compile Include="3_LSP\UnableToFlyException.cs" />
+    <Compile Include="3_LSP\2BadWithContinue.cs" />
+    <Compile Include="3_LSP\3Better.cs" />
+    <Compile Include="4_ISP\1Bad.cs" />
+    <Compile Include="4_ISP\2Better.cs" />
+    <Compile Include="2_OCP\Product.cs" />
+    <Compile Include="2_OCP\ProductColor.cs" />
+    <Compile Include="2_OCP\ProductSize.cs" />
+    <Compile Include="2_OCP\Example2\1Bad\1ColorOnly.cs" />
+    <Compile Include="2_OCP\Example2\1Bad\2ColorAndSize.cs" />
+    <Compile Include="2_OCP\Example2\2Good\ProductFilterSpecificationBase.cs" />
+    <Compile Include="2_OCP\Example2\2Good\ColorFilterSpecification.cs" />
+    <Compile Include="2_OCP\Example2\2Good\ProductListExtensions.cs" />
+    <Compile Include="2_OCP\Example2\2Good\SizeFilterSpecification.cs" />
+    <Compile Include="2_OCP\Example2\2Good\AndCompositeFilterSpecification.cs" />
+    <Compile Include="2_OCP\Example2\2Good\Client.cs" />
+    <Compile Include="2_OCP\Example2\2Good\OrCompositeFilterSpecification.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+  <ItemGroup />
+</Project>

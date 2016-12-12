@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="SolidPresentation.DIP.Good.Views.AddressControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:SolidPresentation.DIP.Good.Views"
+             xmlns:converters="clr-namespace:SolidPresentation.DIP.Good.Views.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <converters:PostalCodeConverter x:Key="PostalCodeConverter" />
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding Path=Address, RelativeSource={RelativeSource AncestorType=views:AddressControl}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Number" />
+        <TextBox
+            Grid.Column="2" Grid.Row="0"
+            Text="{Binding Path=StreetNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Street" />
+        <TextBox
+            Grid.Column="2" Grid.Row="2"
+            Text="{Binding Path=StreetName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Postal code" />
+        <TextBox
+            Grid.Column="2" Grid.Row="4"
+            Text="{Binding Path=PostalCode, Converter={StaticResource PostalCodeConverter}, ValidatesOnNotifyDataErrors=True}" />
+
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="City" />
+        <TextBox
+            Grid.Column="2" Grid.Row="6"
+            Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+    </Grid>
+</UserControl>

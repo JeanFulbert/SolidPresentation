@@ -1,0 +1,41 @@
+﻿<Window x:Class="SolidPresentation.DIP.Good.Views.PersonListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:persons="clr-namespace:SolidPresentation.DIP.Good.ViewModels.Persons;assembly=SolidPresentation.DIP.Good.ViewModels"
+        mc:Ignorable="d" Height="400" Width="400"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance persons:PersonListViewModel}">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <ListBox
+            x:Name="PersonListBox" x:FieldModifier="private"
+            SelectionMode="Extended"
+            DisplayMemberPath="Description"
+            ItemsSource="{Binding Path=Persons}"
+            />
+        
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="2" HorizontalAlignment="Right">
+
+            <Button
+                Content="Add"
+                Command="{Binding Path=AddNewPersonCommand}"
+                />
+
+            <Button
+                Content="Delete"
+                Margin="10,0,0,0"
+                Command="{Binding Path=DeletePersonsCommand}"
+                />
+        </StackPanel>
+    </Grid>
+</Window>
