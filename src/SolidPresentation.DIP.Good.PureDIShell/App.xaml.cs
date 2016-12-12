@@ -18,70 +18,73 @@
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            //var listPersonView = BuildOnlyWithFakes();
-            //var listPersonView = BuildWithMessageBox();
-            //var listPersonView = BuildWithMessageBoxAndPersistance();
-            //var listPersonView = this.BuildWithoutEmailSender();
-            var listPersonView = this.BuildFull();
+            
+            var listPersonView = this.Build();
 
             listPersonView.Show();
         }
 
-        private PersonListWindow BuildOnlyWithFakes()
+        private PersonListWindow Build()
         {
-            return
-                new PersonListWindow(
-                    new PersonListViewModel(
-                        new MemoryPersonRepository(),
-                        new FakePersonCreationService(GetDummyPersons()),
-                        new FakeConfirmationService(true),
-                        new PersonEmailService(new FakeEmailSender())));
+            return null;
         }
 
-        private PersonListWindow BuildWithMessageBox()
-        {
-            return
-                new PersonListWindow(
-                    new PersonListViewModel(
-                        new MemoryPersonRepository(),
-                        new FakePersonCreationService(GetDummyPersons()),
-                        new ConfirmationService(),
-                        new PersonEmailService(new FakeEmailSender())));
-        }
+        #region Builds
+        //private PersonListWindow BuildOnlyWithFakes()
+        //{
+        //    return
+        //        new PersonListWindow(
+        //            new PersonListViewModel(
+        //                new MemoryPersonRepository(),
+        //                new FakePersonCreationService(GetDummyPersons()),
+        //                new FakeConfirmationService(true),
+        //                new PersonEmailService(new FakeEmailSender())));
+        //}
 
-        private PersonListWindow BuildWithMessageBoxAndPersistance()
-        {
-            return
-                new PersonListWindow(
-                    new PersonListViewModel(
-                        new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new FakePersonCreationService(GetDummyPersons()),
-                        new ConfirmationService(),
-                        new PersonEmailService(new FakeEmailSender())));
-        }
+        //private PersonListWindow BuildWithMessageBox()
+        //{
+        //    return
+        //        new PersonListWindow(
+        //            new PersonListViewModel(
+        //                new MemoryPersonRepository(),
+        //                new FakePersonCreationService(GetDummyPersons()),
+        //                new ConfirmationService(),
+        //                new PersonEmailService(new FakeEmailSender())));
+        //}
 
-        private PersonListWindow BuildWithoutEmailSender()
-        {
-            return
-                new PersonListWindow(
-                    new PersonListViewModel(
-                        new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new PersonCreationService(),
-                        new ConfirmationService(),
-                        new PersonEmailService(new FakeEmailSender())));
-        }
+        //private PersonListWindow BuildWithMessageBoxAndPersistance()
+        //{
+        //    return
+        //        new PersonListWindow(
+        //            new PersonListViewModel(
+        //                new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
+        //                new FakePersonCreationService(GetDummyPersons()),
+        //                new ConfirmationService(),
+        //                new PersonEmailService(new FakeEmailSender())));
+        //}
 
-        private PersonListWindow BuildFull()
-        {
-            return
-                new PersonListWindow(
-                    new PersonListViewModel(
-                        new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new PersonCreationService(),
-                        new ConfirmationService(),
-                        new PersonEmailService(new EmailSender())));
-        }
+        //private PersonListWindow BuildWithoutEmailSender()
+        //{
+        //    return
+        //        new PersonListWindow(
+        //            new PersonListViewModel(
+        //                new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
+        //                new PersonCreationService(),
+        //                new ConfirmationService(),
+        //                new PersonEmailService(new FakeEmailSender())));
+        //}
+
+        //private PersonListWindow BuildFull()
+        //{
+        //    return
+        //        new PersonListWindow(
+        //            new PersonListViewModel(
+        //                new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
+        //                new PersonCreationService(),
+        //                new ConfirmationService(),
+        //                new PersonEmailService(new EmailSender())));
+        //}
+        #endregion
 
         private static IReadOnlyList<Person> GetDummyPersons()
         {
