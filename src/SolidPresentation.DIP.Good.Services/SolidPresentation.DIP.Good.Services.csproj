@@ -41,9 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CancellableResult.cs" />
-    <Compile Include="IEditPersonService.cs" />
+    <Compile Include="IPersonCreationService.cs" />
     <Compile Include="IEmailSender.cs" />
-    <Compile Include="IMessageBoxService.cs" />
+    <Compile Include="IConfirmationService.cs" />
     <Compile Include="PersonEmailService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IPersonReadonlyRepository.cs" />

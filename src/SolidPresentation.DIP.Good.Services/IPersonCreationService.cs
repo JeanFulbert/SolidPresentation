@@ -2,7 +2,7 @@
 {
     using SolidPresentation.DIP.Good.Domain.Models;
 
-    public interface IEditPersonService
+    public interface IPersonCreationService
     {
         CancellableResult<Person> Create();
     }

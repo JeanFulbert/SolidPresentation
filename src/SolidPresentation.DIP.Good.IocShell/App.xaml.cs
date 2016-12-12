@@ -31,8 +31,8 @@
                     new LiteDatabase(@"local.db"));
 
             container.RegisterSingleton<IPersonRepository>(liteDbRepository);
-            container.RegisterSingleton<IEditPersonService, EditPersonService>();
-            container.RegisterSingleton<IMessageBoxService, MessageBoxService>();
+            container.RegisterSingleton<IPersonCreationService, PersonCreationService>();
+            container.RegisterSingleton<IConfirmationService, ConfirmationService>();
             container.RegisterSingleton<IEmailSender, EmailSender>();
 
             return container;

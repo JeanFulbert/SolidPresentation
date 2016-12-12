@@ -34,8 +34,8 @@
                 new PersonListWindow(
                     new PersonListViewModel(
                         new MemoryPersonRepository(),
-                        new FakeEditPersonService(GetDummyPersons()),
-                        new FakeMessageBoxService(true),
+                        new FakePersonCreationService(GetDummyPersons()),
+                        new FakeConfirmationService(true),
                         new PersonEmailService(new FakeEmailSender())));
         }
 
@@ -45,8 +45,8 @@
                 new PersonListWindow(
                     new PersonListViewModel(
                         new MemoryPersonRepository(),
-                        new FakeEditPersonService(GetDummyPersons()),
-                        new MessageBoxService(),
+                        new FakePersonCreationService(GetDummyPersons()),
+                        new ConfirmationService(),
                         new PersonEmailService(new FakeEmailSender())));
         }
 
@@ -56,8 +56,8 @@
                 new PersonListWindow(
                     new PersonListViewModel(
                         new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new FakeEditPersonService(GetDummyPersons()),
-                        new MessageBoxService(),
+                        new FakePersonCreationService(GetDummyPersons()),
+                        new ConfirmationService(),
                         new PersonEmailService(new FakeEmailSender())));
         }
 
@@ -67,8 +67,8 @@
                 new PersonListWindow(
                     new PersonListViewModel(
                         new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new EditPersonService(),
-                        new MessageBoxService(),
+                        new PersonCreationService(),
+                        new ConfirmationService(),
                         new PersonEmailService(new FakeEmailSender())));
         }
 
@@ -78,8 +78,8 @@
                 new PersonListWindow(
                     new PersonListViewModel(
                         new LiteDbPersonRepository(new LiteDatabase(@"local.db")),
-                        new EditPersonService(),
-                        new MessageBoxService(),
+                        new PersonCreationService(),
+                        new ConfirmationService(),
                         new PersonEmailService(new EmailSender())));
         }
 

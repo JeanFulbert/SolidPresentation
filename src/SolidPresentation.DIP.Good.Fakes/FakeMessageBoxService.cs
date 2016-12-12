@@ -2,16 +2,16 @@
 {
     using SolidPresentation.DIP.Good.Services;
 
-    public class FakeMessageBoxService : IMessageBoxService
+    public class FakeConfirmationService : IConfirmationService
     {
         private readonly bool answerWhenQuestion;
 
-        public FakeMessageBoxService(bool answerWhenQuestion)
+        public FakeConfirmationService(bool answerWhenQuestion)
         {
             this.answerWhenQuestion = answerWhenQuestion;
         }
 
-        public bool ShowQuestion(string message)
+        public bool ConfirmPersonDeletion(int nbPersonToDelete)
         {
             return this.answerWhenQuestion;
         }

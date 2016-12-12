@@ -12,14 +12,14 @@
     public class PersonListViewModel : ViewModelBase
     {
         private readonly IPersonRepository personRepository;
-        private readonly IEditPersonService editPersonService;
-        private readonly IMessageBoxService messageBoxService;
+        private readonly IPersonCreationService personCreationService;
+        private readonly IConfirmationService confirmationService;
         private readonly PersonEmailService personEmailService;
 
         public PersonListViewModel(
             IPersonRepository personRepository,
-            IEditPersonService editPersonService,
-            IMessageBoxService messageBoxService,
+            IPersonCreationService personCreationService,
+            IConfirmationService confirmationService,
             PersonEmailService personEmailService)
         {
             if (personRepository == null)
@@ -27,14 +27,14 @@
                 throw new ArgumentNullException(nameof(personRepository));
             }
 
-            if (editPersonService == null)
+            if (personCreationService == null)
             {
-                throw new ArgumentNullException(nameof(editPersonService));
+                throw new ArgumentNullException(nameof(personCreationService));
             }
 
-            if (messageBoxService == null)
+            if (confirmationService == null)
             {
-                throw new ArgumentNullException(nameof(messageBoxService));
+                throw new ArgumentNullException(nameof(confirmationService));
             }
 
             if (personEmailService == null)
@@ -43,8 +43,8 @@
             }
 
             this.personRepository = personRepository;
-            this.editPersonService = editPersonService;
-            this.messageBoxService = messageBoxService;
+            this.personCreationService = personCreationService;
+            this.confirmationService = confirmationService;
             this.personEmailService = personEmailService;
 
             this.AddNewPersonCommand = new AsyncCommand(this.AddNewPersonAsync);
@@ -81,7 +81,7 @@
 
         private async Task AddNewPersonAsync()
         {
-            var result = this.editPersonService.Create();
+            var result = this.personCreationService.Create();
             if (result.IsCancelled)
             {
                 return;
@@ -95,10 +95,7 @@
 
         private async Task DeletePersonsAsync()
         {
-            var canDeletePersons =
-                this.messageBoxService.ShowQuestion(
-                    $"Are you sure to delete these {this.SelectedPersons.Count} person(s)?");
-
+            var canDeletePersons = this.confirmationService.ConfirmPersonDeletion(this.SelectedPersons.Count);
             if (!canDeletePersons)
             {
                 return;

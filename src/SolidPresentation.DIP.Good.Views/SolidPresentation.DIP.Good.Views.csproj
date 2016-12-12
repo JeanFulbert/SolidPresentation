@@ -130,8 +130,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Services\EditPersonService.cs" />
-    <Compile Include="Services\MessageBoxService.cs" />
+    <Compile Include="Services\PersonCreationService.cs" />
+    <Compile Include="Services\ConfirmationService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

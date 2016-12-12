@@ -4,7 +4,7 @@
     using SolidPresentation.DIP.Good.Services;
     using SolidPresentation.DIP.Good.ViewModels.Persons;
 
-    public class EditPersonService : IEditPersonService
+    public class PersonCreationService : IPersonCreationService
     {
         public CancellableResult<Person> Create()
         {

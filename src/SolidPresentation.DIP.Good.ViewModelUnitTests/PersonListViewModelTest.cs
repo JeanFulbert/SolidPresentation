@@ -18,8 +18,8 @@
         {
             var sut = new PersonListViewModel(
                 Mock.Of<IPersonRepository>(),
-                Mock.Of<IEditPersonService>(),
-                Mock.Of<IMessageBoxService>(),
+                Mock.Of<IPersonCreationService>(),
+                Mock.Of<IConfirmationService>(),
                 new PersonEmailService(Mock.Of<IEmailSender>()));
 
             Assert.That(sut.Persons, Is.Empty);
@@ -31,8 +31,8 @@
         {
             var sut = new PersonListViewModel(
                 new GetAllDummyPersonsRepository(),
-                Mock.Of<IEditPersonService>(),
-                Mock.Of<IMessageBoxService>(),
+                Mock.Of<IPersonCreationService>(),
+                Mock.Of<IConfirmationService>(),
                 new PersonEmailService(Mock.Of<IEmailSender>()));
 
             await sut.LoadAsync();
@@ -49,7 +49,7 @@
                 .Setup(r => r.GetAll())
                 .Returns(new List<Person>());
 
-            var editPersonMock = new Mock<IEditPersonService>();
+            var editPersonMock = new Mock<IPersonCreationService>();
             editPersonMock
                 .Setup(s => s.Create())
                 .Returns(CancellableResult<Person>.Cancel());
@@ -59,7 +59,7 @@
             var sut = new PersonListViewModel(
                 personRepoMock.Object,
                 editPersonMock.Object,
-                Mock.Of<IMessageBoxService>(),
+                Mock.Of<IConfirmationService>(),
                 new PersonEmailService(emailSenderMock.Object));
             await sut.LoadAsync();
 
@@ -82,7 +82,7 @@
                 .Setup(r => r.GetAll())
                 .Returns(new List<Person>());
 
-            var editPersonMock = new Mock<IEditPersonService>();
+            var editPersonMock = new Mock<IPersonCreationService>();
             editPersonMock
                 .Setup(s => s.Create())
                 .Returns(CancellableResult<Person>.Success(PersonsFactory.JeanPierre));
@@ -92,7 +92,7 @@
             var sut = new PersonListViewModel(
                 personRepoMock.Object,
                 editPersonMock.Object,
-                Mock.Of<IMessageBoxService>(),
+                Mock.Of<IConfirmationService>(),
                 new PersonEmailService(emailSenderMock.Object));
             await sut.LoadAsync();
 
@@ -115,17 +115,17 @@
                 .Setup(r => r.GetAll())
                 .Returns(PersonsFactory.All);
 
-            var messageBoxServiceMock = new Mock<IMessageBoxService>();
-            messageBoxServiceMock
-                .Setup(m => m.ShowQuestion(It.IsAny<string>()))
+            var confirmationServiceMock = new Mock<IConfirmationService>();
+            confirmationServiceMock
+                .Setup(c => c.ConfirmPersonDeletion(It.IsAny<int>()))
                 .Returns(false);
 
             var emailSenderMock = new Mock<IEmailSender>();
 
             var sut = new PersonListViewModel(
                 personRepoMock.Object,
-                Mock.Of<IEditPersonService>(),
-                messageBoxServiceMock.Object,
+                Mock.Of<IPersonCreationService>(),
+                confirmationServiceMock.Object,
                 new PersonEmailService(emailSenderMock.Object));
             await sut.LoadAsync();
 
@@ -142,17 +142,17 @@
                 .Setup(r => r.GetAll())
                 .Returns(PersonsFactory.All);
 
-            var messageBoxServiceMock = new Mock<IMessageBoxService>();
-            messageBoxServiceMock
-                .Setup(m => m.ShowQuestion(It.IsAny<string>()))
+            var confirmationServiceMock = new Mock<IConfirmationService>();
+            confirmationServiceMock
+                .Setup(c => c.ConfirmPersonDeletion(It.IsAny<int>()))
                 .Returns(false);
 
             var emailSenderMock = new Mock<IEmailSender>();
 
             var sut = new PersonListViewModel(
                 personRepoMock.Object,
-                Mock.Of<IEditPersonService>(),
-                messageBoxServiceMock.Object,
+                Mock.Of<IPersonCreationService>(),
+                confirmationServiceMock.Object,
                 new PersonEmailService(emailSenderMock.Object));
             await sut.LoadAsync();
 
@@ -181,17 +181,17 @@
                 .Setup(r => r.GetAll())
                 .Returns(PersonsFactory.All);
 
-            var messageBoxServiceMock = new Mock<IMessageBoxService>();
-            messageBoxServiceMock
-                .Setup(m => m.ShowQuestion(It.IsAny<string>()))
+            var confirmationServiceMock = new Mock<IConfirmationService>();
+            confirmationServiceMock
+                .Setup(c => c.ConfirmPersonDeletion(It.IsAny<int>()))
                 .Returns(true);
 
             var emailSenderMock = new Mock<IEmailSender>();
 
             var sut = new PersonListViewModel(
                 personRepoMock.Object,
-                Mock.Of<IEditPersonService>(),
-                messageBoxServiceMock.Object,
+                Mock.Of<IPersonCreationService>(),
+                confirmationServiceMock.Object,
                 new PersonEmailService(emailSenderMock.Object));
             await sut.LoadAsync();
 

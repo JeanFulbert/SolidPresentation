@@ -5,12 +5,12 @@
     using SolidPresentation.DIP.Good.Domain.Models;
     using SolidPresentation.DIP.Good.Services;
 
-    public class FakeEditPersonService : IEditPersonService
+    public class FakePersonCreationService : IPersonCreationService
     {
         private readonly IReadOnlyList<Person> personsToCreate;
         private int currentIndex;
 
-        public FakeEditPersonService(IReadOnlyList<Person> personsToCreate)
+        public FakePersonCreationService(IReadOnlyList<Person> personsToCreate)
         {
             if (personsToCreate == null)
             {
