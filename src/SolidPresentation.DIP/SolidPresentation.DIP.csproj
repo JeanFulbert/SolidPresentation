@@ -82,28 +82,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="2OrderCheckout\Exceptions\AvsMismatchException.cs" />
-    <Compile Include="2OrderCheckout\Common\PaymentGateway.cs" />
-    <Compile Include="2OrderCheckout\Exceptions\OrderException.cs" />
-    <Compile Include="2OrderCheckout\Exceptions\InsufficientInventoryException.cs" />
-    <Compile Include="2OrderCheckout\Common\InventorySystem.cs" />
-    <Compile Include="2OrderCheckout\Common\Logger.cs" />
-    <Compile Include="2OrderCheckout\Model\OrderLine.cs" />
-    <Compile Include="2OrderCheckout\Model\PaymentDetails.cs" />
-    <Compile Include="2OrderCheckout\Model\Cart.cs" />
-    <Compile Include="2OrderCheckout\_Bad\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="1Simple\1Before.cs" />
-    <Compile Include="1Simple\2InversedWithoutInterface.cs" />
-    <Compile Include="1Simple\3InversedWithInterface.cs" />
-    <Compile Include="2OrderCheckout\_Good\Interfaces\INotificationService.cs" />
-    <Compile Include="2OrderCheckout\_Good\Interfaces\IPaymentProcessor.cs" />
-    <Compile Include="2OrderCheckout\_Good\Interfaces\IReservationService.cs" />
-    <Compile Include="2OrderCheckout\_Good\Services\DoNotNotifyService.cs" />
-    <Compile Include="2OrderCheckout\_Good\Services\PaymentProcessor.cs" />
-    <Compile Include="2OrderCheckout\_Good\Services\NotificationService.cs" />
-    <Compile Include="2OrderCheckout\_Good\Order.cs" />
-    <Compile Include="2OrderCheckout\_Good\Services\ReservationService.cs" />
+    <Compile Include="1Before.cs" />
+    <Compile Include="2InversedWithoutInterface.cs" />
+    <Compile Include="3InversedWithInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

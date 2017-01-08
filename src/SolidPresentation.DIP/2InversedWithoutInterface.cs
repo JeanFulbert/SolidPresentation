@@ -1,4 +1,4 @@
-﻿namespace SolidPresentation.DIP._1Simple.InversedWithoutInterface
+﻿namespace SolidPresentation.DIP.InversedWithoutInterface
 {
     using System;
 

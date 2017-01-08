@@ -1,4 +1,4 @@
-﻿namespace SolidPresentation.DIP._1Simple.Before
+﻿namespace SolidPresentation.DIP.Before
 {
     public class Class1
     {
