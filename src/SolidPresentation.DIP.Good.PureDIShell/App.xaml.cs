@@ -19,12 +19,12 @@
         {
             base.OnStartup(e);
             
-            var listPersonView = this.Build();
+            var listPersonView = this.BuildPersonListWindow();
 
             listPersonView.Show();
         }
 
-        private PersonListWindow Build()
+        private PersonListWindow BuildPersonListWindow()
         {
             return null;
         }
