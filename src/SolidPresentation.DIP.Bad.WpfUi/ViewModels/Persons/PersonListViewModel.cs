@@ -18,7 +18,7 @@
 
         public PersonListViewModel()
         {
-            this.personRepository = new LiteDbPersonRepository(new LiteDatabase("badLocal.db"));
+            this.personRepository = new LiteDbPersonRepository(new LiteDatabase("local.db"));
             this.personEmailService = new PersonEmailService();
 
             this.AddNewPersonCommand = new AsyncCommand(this.AddNewPersonAsync);
